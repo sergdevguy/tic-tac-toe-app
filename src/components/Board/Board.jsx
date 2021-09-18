@@ -4,7 +4,7 @@ import s from './Board.module.scss';
 
 const Board = () => {
     const renderSquare = (i) => {
-        return <Square />;
+        return <Square value={i} />;
     }
 
     const status = 'Next player: X';
