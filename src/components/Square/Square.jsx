@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import s from './Square.module.scss';
 
 const Square = ({ value, onClick }) => {
