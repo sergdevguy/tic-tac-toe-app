@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './Square.module.scss';
 
 const Square = ({ value }) => {
+    const [stateValue, setStateValue] = useState(value);
+
     return (
         <div>
-            <button className={s["square"]}>
-                {value}
+            <button
+                onClick={() => {
+                    setStateValue('X');
+                }}
+                className={s["square"]}
+            >
+                {stateValue}
             </button>
         </div>
     )
