@@ -5,9 +5,7 @@ const Square = ({ value, onClick }) => {
     return (
         <div>
             <button
-                onClick={() => {
-                    onClick();
-                }}
+                onClick={onClick}
                 className={s["square"]}
             >
                 {value}
