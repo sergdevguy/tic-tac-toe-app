@@ -4,11 +4,13 @@ import s from './Board.module.scss';
 
 const Board = () => {
     const [squares, setSquares] = useState(Array(9).fill(null));
+    const [xIsNext, setXisNext] = useState(true);
 
     const handleClick = (i) => {
         const squaresCopy = squares.slice();
-        squaresCopy[i] = 'X';
+        squaresCopy[i] = xIsNext ? 'X' : 'O';
         setSquares(squaresCopy);
+        setXisNext(!xIsNext);
     }
 
     const renderSquare = (i) => {
@@ -20,7 +22,7 @@ const Board = () => {
         );
     }
 
-    const status = 'Next player: X';
+    const status = 'Следующий ход: ' + (xIsNext ? 'X' : 'O');
 
     return (
         <div>
