@@ -55,7 +55,7 @@ const Game = () => {
       'К началу игры';
     const positionDesc = move ?
       getPosition(historyC[move].step) :
-      ''
+      '';
 
     return (
       <li key={move}>
