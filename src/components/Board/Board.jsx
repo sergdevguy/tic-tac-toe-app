@@ -3,6 +3,25 @@ import Square from '../Square/Square';
 import s from './Board.module.scss';
 
 const Board = ({ squares, onClick }) => {
+    const renderSquares = () => {
+        const colSize = [1, 2, 3];
+        const rowSize = [1, 2, 3];
+        let counter = 0;
+        
+        return (
+            colSize.map((item, index) => {
+                return (
+                    <div className={s["board-row"]}>
+                        {rowSize.map((item, index) => {
+                            counter++;
+                            return renderSquare(counter - 1);
+                        })}
+                    </div>
+                )
+            })
+        );
+    }
+
     const renderSquare = (i) => {
         return (
             <Square
@@ -14,21 +33,7 @@ const Board = ({ squares, onClick }) => {
 
     return (
         <div>
-            <div className={s["board-row"]}>
-                {renderSquare(0)}
-                {renderSquare(1)}
-                {renderSquare(2)}
-            </div>
-            <div className={s["board-row"]}>
-                {renderSquare(3)}
-                {renderSquare(4)}
-                {renderSquare(5)}
-            </div>
-            <div className={s["board-row"]}>
-                {renderSquare(6)}
-                {renderSquare(7)}
-                {renderSquare(8)}
-            </div>
+            {renderSquares()}
         </div>
     )
 }
