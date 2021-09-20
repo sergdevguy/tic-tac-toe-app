@@ -49,6 +49,10 @@ const Game = () => {
   const current = historyC[stepNumber];
   const winner = calculateWinner(current.squares);
 
+  const checkDraw = () => {
+    return !current.squares.includes(null);
+  }
+
   const moves = historyC.map((step, move) => {
     const desc = move ?
       'Перейти к ходу #' + move :
@@ -57,8 +61,9 @@ const Game = () => {
       getPosition(historyC[move].step) :
       '';
 
+
     return (
-      <li key={move} onClick={() => console.log(this)}>
+      <li key={move}>
         <button onClick={() => jumpTo(move)}>{desc}</button>
         <span>{' '}{positionDesc}</span>
       </li>
@@ -68,9 +73,12 @@ const Game = () => {
   let status;
   if (winner) {
     status = 'Выиграл ' + winner;
+  } else if (checkDraw()) {
+    status = 'Ничья';
   } else {
     status = 'Следующий ход: ' + (xIsNext ? 'X' : 'O');
   }
+
 
   return (
     <div className={s["game"]}>
