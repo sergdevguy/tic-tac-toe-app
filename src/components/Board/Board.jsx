@@ -7,11 +7,11 @@ const Board = ({ squares, onClick }) => {
         const colSize = [1, 2, 3];
         const rowSize = [1, 2, 3];
         let counter = 0;
-        
+
         return (
             colSize.map((item, index) => {
                 return (
-                    <div className={s["board-row"]}>
+                    <div key={index} className={s["board-row"]}>
                         {rowSize.map((item, index) => {
                             counter++;
                             return renderSquare(counter - 1);
@@ -25,6 +25,7 @@ const Board = ({ squares, onClick }) => {
     const renderSquare = (i) => {
         return (
             <Square
+                key={i}
                 onClick={() => onClick(i)}
                 value={squares[i]}
             />

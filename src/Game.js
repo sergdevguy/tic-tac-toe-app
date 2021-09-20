@@ -58,7 +58,7 @@ const Game = () => {
       '';
 
     return (
-      <li key={move}>
+      <li key={move} onClick={() => console.log(this)}>
         <button onClick={() => jumpTo(move)}>{desc}</button>
         <span>{' '}{positionDesc}</span>
       </li>
